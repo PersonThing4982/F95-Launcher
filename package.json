@@ -1,0 +1,122 @@
+{
+  "name": "f95-game-launcher",
+  "version": "1.0.0",
+  "description": "F95Zone Game Launcher and Manager for Linux",
+  "main": "dist/main/main/main.js",
+  "scripts": {
+    "dev": "npm run dev:main & npm run dev:renderer",
+    "dev:main": "tsc -w -p tsconfig.main.json",
+    "dev:renderer": "vite",
+    "build": "npm run build:main && npm run build:renderer",
+    "build:main": "tsc -p tsconfig.main.json",
+    "build:renderer": "vite build",
+    "start": "npm run build && electron .",
+    "dist": "npm run build && electron-builder",
+    "dist:linux": "npm run build && electron-builder --linux",
+    "dist:win": "npm run build && electron-builder --win",
+    "dist:all": "npm run build && electron-builder --linux --win",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "keywords": [
+    "f95zone",
+    "game-launcher",
+    "game-manager",
+    "linux"
+  ],
+  "author": {
+    "name": "F95 Launcher",
+    "email": "f95launcher@example.com"
+  },
+  "homepage": "https://github.com/PersonThing4982/F95-Launcher",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^20.10.5",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.16",
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10"
+  },
+  "dependencies": {
+    "@millenniumearl/f95api": "^2.0.0-beta.13.2",
+    "axios": "^1.6.2",
+    "electron-store": "^8.1.0",
+    "fs-extra": "^11.2.0",
+    "lucide-react": "^0.298.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "winston": "^3.11.0"
+  },
+  "build": {
+    "appId": "com.f95launcher.app",
+    "productName": "F95GameLauncher",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "dist/**/*",
+      "assets/**/*"
+    ],
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": ["x64"]
+        },
+        {
+          "target": "deb",
+          "arch": ["x64"]
+        },
+        {
+          "target": "rpm",
+          "arch": ["x64"]
+        }
+      ],
+      "category": "Game",
+      "icon": "assets/icons",
+      "maintainer": "F95 Launcher <f95launcher@example.com>",
+      "description": "F95Zone Game Launcher and Manager",
+      "desktop": {
+        "Name": "F95 Game Launcher",
+        "Comment": "Game launcher and manager with F95Zone integration",
+        "Categories": "Game;Utility;",
+        "Keywords": "games;launcher;f95zone;",
+        "Icon": "F95",
+        "Type": "Application",
+        "Terminal": "false",
+        "StartupNotify": "true",
+        "MimeType": "x-scheme-handler/f95launcher;"
+      },
+      "executableName": "F95",
+      "synopsis": "Game launcher and manager with F95Zone integration"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "assets/icons/512x512.png",
+      "publisherName": "F95 Launcher",
+      "requestedExecutionLevel": "asInvoker"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "F95 Game Launcher"
+    }
+  }
+}
