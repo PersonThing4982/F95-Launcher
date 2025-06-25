@@ -195,13 +195,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 This application is not affiliated with or endorsed by F95Zone. It's an independent tool that uses F95Zone's public API for game metadata and discovery. Please respect F95Zone's terms of service when using this application.
 
-## Support
 
-- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/PersonThing4982/F95-Launcher/issues)
-- 💡 **Feature Requests**: [GitHub Issues](https://github.com/PersonThing4982/F95-Launcher/issues)
-- 📖 **Documentation**: [Wiki](https://github.com/PersonThing4982/F95-Launcher/wiki)
-
----
 
 <div align="center">
 
