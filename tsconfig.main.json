@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "noEmit": false,
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "allowImportingTsExtensions": false,
+    "outDir": "./dist/main",
+    "rootDir": "./src",
+    "esModuleInterop": true,
+    "noImplicitAny": false
+  },
+  "include": ["src/main/**/*", "src/shared/**/*"],
+  "exclude": ["**/*.spec.ts", "**/*.test.ts"]
+}
